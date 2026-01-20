@@ -1,19 +1,7 @@
 # Blade Tabler Icons
 
-> [!WARNING]
-> This package is no longer maintained. I recommend migrating to [secondnetwork/blade-tabler-icons](https://github.com/secondnetwork/blade-tabler-icons) which provides the same set of icons.
+A package to easily make use of [Tabler Icons](https://github.com/tabler/tabler-icons) in your Laravel Blade views. This is forked from [ryangjchandler](https://github.com/ryangjchandler/blade-tabler-icons) as the package he is referring to was missing some icons. 
 
-<a href="https://github.com/ryangjchandler/blade-tabler-icons/actions?query=workflow%3ATests">
-    <img src="https://github.com/ryangjchandler/blade-tabler-icons/workflows/Tests/badge.svg" alt="Tests">
-</a>
-<a href="https://packagist.org/packages/ryangjchandler/blade-tabler-icons">
-    <img src="https://poser.pugx.org/ryangjchandler/blade-tabler-icons/v/stable.svg" alt="Latest Stable Version">
-</a>
-<a href="https://packagist.org/packages/ryangjchandler/blade-tabler-icons">
-    <img src="https://poser.pugx.org/ryangjchandler/blade-tabler-icons/d/total.svg" alt="Total Downloads">
-</a>
-
-A package to easily make use of [Tabler Icons](https://github.com/tabler/tabler-icons) in your Laravel Blade views.
 
 For a full list of available icons see [the SVG directory](resources/svg) or preview them on [GitHub](https://preview.tabler.io/icons.html).
 
@@ -25,7 +13,7 @@ For a full list of available icons see [the SVG directory](resources/svg) or pre
 ## Installation
 
 ```bash
-composer require ryangjchandler/blade-tabler-icons
+composer require jbsommeling/blade-tabler-icons
 ```
 
 ## Usage
@@ -66,13 +54,9 @@ Then use them in your views like:
 
 Blade Tabler Icons uses Blade Icons under the hood. Please refer to [the Blade Icons readme](https://github.com/blade-ui-kit/blade-icons) for additional functionality.
 
-## Changelog
-
-Check out the [CHANGELOG](CHANGELOG.md) in this repository for all the recent changes.
-
 ## Maintainers
 
-Blade Tabler Icons is developed and maintained by [Ryan Chandler](https://ryangjchandler.co.uk).
+Blade Tabler Icons is developed and maintained by [J.B. Sommeling](https://github.com/JBSommeling/)
 
 ## License
 

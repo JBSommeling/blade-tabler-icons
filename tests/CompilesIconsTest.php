@@ -6,7 +6,7 @@ namespace Tests;
 
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Orchestra\Testbench\TestCase;
-use RyanChandler\TablerIcons\BladeTablerIconsServiceProvider;
+use JBSommeling\TablerIcons\BladeTablerIconsServiceProvider;
 
 class CompilesIconsTest extends TestCase
 {

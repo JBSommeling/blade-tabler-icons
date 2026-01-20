@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RyanChandler\TablerIcons;
+namespace JBSommeling\TablerIcons;
 
 use BladeUI\Icons\Factory;
 use Illuminate\Support\ServiceProvider;
