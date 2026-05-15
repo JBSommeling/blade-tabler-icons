@@ -1,6 +1,12 @@
 # Blade Tabler Icons
 
-A package to easily make use of [Tabler Icons](https://github.com/tabler/tabler-icons) in your Laravel Blade views. This is forked from [ryangjchandler](https://github.com/ryangjchandler/blade-tabler-icons) as the package he is referring to was missing some icons. 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jbsommeling/blade-tabler-icons.svg?style=flat-square)](https://packagist.org/packages/jbsommeling/blade-tabler-icons)
+[![Total Downloads](https://img.shields.io/packagist/dt/jbsommeling/blade-tabler-icons.svg?style=flat-square)](https://packagist.org/packages/jbsommeling/blade-tabler-icons)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/jbsommeling/blade-tabler-icons.svg?style=flat-square)](https://packagist.org/packages/jbsommeling/blade-tabler-icons)
+[![PHP Version](https://img.shields.io/packagist/php-v/jbsommeling/blade-tabler-icons.svg?style=flat-square)](https://packagist.org/packages/jbsommeling/blade-tabler-icons)
+[![License](https://img.shields.io/packagist/l/jbsommeling/blade-tabler-icons.svg?style=flat-square)](https://packagist.org/packages/jbsommeling/blade-tabler-icons)
+
+A package to easily make use of [Tabler Icons](https://github.com/tabler/tabler-icons) in your Laravel Blade views. This is forked from [ryangjchandler](https://github.com/ryangjchandler/blade-tabler-icons) as the package was outdated and the one he is referring to was missing some icons. 
 
 
 For a full list of available icons see [the SVG directory](resources/svg) or preview them on [GitHub](https://preview.tabler.io/icons.html).
