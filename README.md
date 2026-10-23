@@ -16,6 +16,22 @@ For a full list of available icons see [the SVG directory](resources/svg) or pre
 - PHP 8.1 or higher
 - Laravel 10, 11, 12, or 13
 
+### Compatibility
+
+Every combination marked ✅ is tested in CI.
+
+| PHP | Laravel 10 | Laravel 11 | Laravel 12 | Laravel 13 |
+|-----|:----------:|:----------:|:----------:|:----------:|
+| 8.1 | ✅ | — | — | — |
+| 8.2 | ✅ | ✅ | ✅ | — |
+| 8.3 | ✅ | ✅ | ✅ | ✅ |
+| 8.4 | ✅ | ✅ | ✅ | ✅ |
+| 8.5 | ✅ | ✅ | ✅ | ✅ |
+
+— means Laravel itself does not support that PHP version.
+
+> **Note:** Laravel 10 and 11 are end-of-life and no longer receive security fixes. Upgrading to Laravel 12 or 13 is strongly recommended.
+
 ## Installation
 
 ```bash
