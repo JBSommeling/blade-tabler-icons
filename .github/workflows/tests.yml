@@ -16,16 +16,20 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.2, 8.3, 8.4, 8.5 ]
-        laravel: [ 12.*, 13.* ]
         include:
-          - laravel: 12.*
-            testbench: 10.*
-          - laravel: 13.*
-            testbench: 11.*
-        exclude:
-          - php: 8.2
-            laravel: 13.*
+          - { php: 8.1, laravel: 10.*, testbench: 8.* }
+          - { php: 8.2, laravel: 10.*, testbench: 8.* }
+          - { php: 8.3, laravel: 10.*, testbench: 8.* }
+          - { php: 8.2, laravel: 11.*, testbench: 9.* }
+          - { php: 8.3, laravel: 11.*, testbench: 9.* }
+          - { php: 8.4, laravel: 11.*, testbench: 9.* }
+          - { php: 8.2, laravel: 12.*, testbench: 10.* }
+          - { php: 8.3, laravel: 12.*, testbench: 10.* }
+          - { php: 8.4, laravel: 12.*, testbench: 10.* }
+          - { php: 8.5, laravel: 12.*, testbench: 10.* }
+          - { php: 8.3, laravel: 13.*, testbench: 11.* }
+          - { php: 8.4, laravel: 13.*, testbench: 11.* }
+          - { php: 8.5, laravel: 13.*, testbench: 11.* }
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
@@ -45,6 +49,10 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip
           coverage: none
+
+      - name: Allow end-of-life Laravel versions
+        if: matrix.laravel == '10.*' || matrix.laravel == '11.*'
+        run: composer config audit.block-insecure false
 
       - name: Install dependencies
         run: |
