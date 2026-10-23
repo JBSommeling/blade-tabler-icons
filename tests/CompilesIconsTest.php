@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Tests;
 
 use BladeUI\Icons\BladeIconsServiceProvider;
-use Orchestra\Testbench\TestCase;
 use JBSommeling\TablerIcons\BladeTablerIconsServiceProvider;
+use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CompilesIconsTest extends TestCase
 {
-    /** @test */
-    public function it_compiles_a_single_anonymous_component()
+    #[Test]
+    public function it_compiles_a_single_anonymous_component(): void
     {
         $result = svg('tabler-accessible')->toHtml();
 
@@ -24,11 +25,11 @@ class CompilesIconsTest extends TestCase
 </svg>
 SVG;
 
-        $this->assertStringMatchesFormat($result, $expected);
+        $this->assertStringMatchesFormat($expected, $result);
     }
 
-    /** @test */
-    public function it_can_add_classes_to_icons()
+    #[Test]
+    public function it_can_add_classes_to_icons(): void
     {
         $result = svg('tabler-accessible', 'w-6 h-6 text-gray-500')->toHtml();
 
@@ -43,8 +44,8 @@ SVG;
         $this->assertStringMatchesFormat($expected, $result);
     }
 
-    /** @test */
-    public function it_can_add_styles_to_icons()
+    #[Test]
+    public function it_can_add_styles_to_icons(): void
     {
         $result = svg('tabler-accessible', ['style' => 'color: #555'])->toHtml();
 

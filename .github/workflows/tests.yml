@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
+permissions:
+  contents: read
+
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -13,20 +16,29 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.1, 8.2 ]
-        laravel: [ 10.*, 11.* ]
-        exclude:
-          - php: 8.1
-            laravel: 11.*
+        include:
+          - { php: 8.1, laravel: 10.*, testbench: 8.* }
+          - { php: 8.2, laravel: 10.*, testbench: 8.* }
+          - { php: 8.3, laravel: 10.*, testbench: 8.* }
+          - { php: 8.2, laravel: 11.*, testbench: 9.* }
+          - { php: 8.3, laravel: 11.*, testbench: 9.* }
+          - { php: 8.4, laravel: 11.*, testbench: 9.* }
+          - { php: 8.2, laravel: 12.*, testbench: 10.* }
+          - { php: 8.3, laravel: 12.*, testbench: 10.* }
+          - { php: 8.4, laravel: 12.*, testbench: 10.* }
+          - { php: 8.5, laravel: 12.*, testbench: 10.* }
+          - { php: 8.3, laravel: 13.*, testbench: 11.* }
+          - { php: 8.4, laravel: 13.*, testbench: 11.* }
+          - { php: 8.5, laravel: 13.*, testbench: 11.* }
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.composer/cache/files
           key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
@@ -38,8 +50,14 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip
           coverage: none
 
+      - name: Allow end-of-life Laravel versions
+        if: matrix.laravel == '10.*' || matrix.laravel == '11.*'
+        run: composer config audit.block-insecure false
+
       - name: Install dependencies
-        run: composer require "illuminate/contracts=${{ matrix.laravel }}" --prefer-dist --no-interaction --no-suggest
+        run: |
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --prefer-dist --no-interaction
 
       - name: Execute tests
         run: vendor/bin/phpunit
